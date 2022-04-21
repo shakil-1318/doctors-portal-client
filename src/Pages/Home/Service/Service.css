@@ -1,0 +1,18 @@
+.service-card {
+    background-color: #5454c5;
+    color: #ffffff;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(247, 239, 247, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(247, 239, 247, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(247, 239, 247, 0.75);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.service-card img {}
+
+.service-card h3 {
+    margin: 15px 0;
+}
+
+.service-card p {}

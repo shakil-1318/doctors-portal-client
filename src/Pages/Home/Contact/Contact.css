@@ -1,0 +1,35 @@
+.contact {
+    padding: 100px 0;
+    background-image: linear-gradient(rgba(37, 37, 82, 0.815), rgba(35, 35, 71, 0.849)), var(--img);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+
+.contact_title {
+    margin-bottom: 35px;
+}
+
+.contact_title h3 {
+    color: aqua;
+    font-size: 25px;
+
+}
+
+.contact_title h1 {
+    color: white;
+}
+
+.contact_form {
+    text-align: center;
+}
+
+.contact_form button {
+    text-align: center;
+    background-color: aqua;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}

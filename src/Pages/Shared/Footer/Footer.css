@@ -1,0 +1,49 @@
+.footer {
+    background-image: url('../../../images/footer-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+.footer_content p {
+    color: gray;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.footer_content .common_style {
+    color: aqua;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.footer_icon {
+    padding: 10px 0;
+}
+
+.footer_icon span {
+    margin-right: 15px;
+    padding: 10px 0;
+}
+
+.footer_icon span i {
+    font-size: 25px;
+    color: aqua;
+    transition: .3s;
+}
+
+.footer_icon span i:hover {
+    color: blue;
+}
+
+
+.footer_call_btn .phone_number {
+    font-weight: 700;
+    background-color: aqua;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+}
