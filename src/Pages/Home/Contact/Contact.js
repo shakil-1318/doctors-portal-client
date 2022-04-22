@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 import './Contact.css'
 
 const Contact = () => {
+
     return (
         <>
             <div style={{ "--img": "url('https://i.ibb.co/BrHddZM/appointment-bg.jpg')" }} className="contact">

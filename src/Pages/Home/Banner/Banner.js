@@ -33,7 +33,7 @@ const Banner = () => {
                                 </div>
                                 <div className="inform_content">
                                     <h3>Opening Ours</h3>
-                                    <p>24 Hours</p>
+                                    <p className='m-0'>24 Hours</p>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +45,8 @@ const Banner = () => {
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div className="inform_content">
-                                    <h3>Visit Our Location</h3>
-                                    <p>Broklyn, NY 1036, United States</p>
+                                    <h3 className='m-0'>Visit Our Location</h3>
+                                    <p className='m-0'>Broklyn, NY 1036, United States</p>
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@ const Banner = () => {
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div className="inform_content">
-                                    <h3>Contact Us Now</h3>
-                                    <p>+000 123 456789</p>
+                                    <h3 className='m-0'>Contact Us Now</h3>
+                                    <p className='m-0'>+000 123 456789</p>
                                 </div>
                             </div>
                         </div>
