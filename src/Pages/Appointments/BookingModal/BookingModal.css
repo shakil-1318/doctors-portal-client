@@ -1,0 +1,14 @@
+.modal-content {
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px;
+}
+form button{
+    font-weight: 700;
+    background-color: aqua;
+    color: white;
+    border-radius: 5px !important;
+    border: none;
+    height: 40px;
+    width: 145px;
+}

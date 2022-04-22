@@ -1,0 +1,19 @@
+.booking-card{
+    padding: 10px;
+    margin-top: 20px;
+}
+.booking-card h2{
+    color: aqua;
+    margin: 0;
+}
+.booking-card h5{
+    font-weight: 700;
+    margin: 15px 0;
+}
+.booking-card Button{
+    background-color: aqua;
+    border: none;
+    border-radius: 0 !important;
+    width: 200px;
+    margin: 0 auto;
+}
