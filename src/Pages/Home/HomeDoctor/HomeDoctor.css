@@ -15,7 +15,7 @@
     display: grid;
     text-align: center;
     padding: 0.5rem 1rem;
-    background: rgb(240, 240, 240);
+    background: rgb(236, 234, 234);
     width: 18.75rem;
     height: 18.75rem;
   }
@@ -32,8 +32,4 @@
     font-family: "GFS Didot", serif;
     font-weight: bold;
     color: #292f33;
-  }
-  
-  P {
-    color: #141823;
   }

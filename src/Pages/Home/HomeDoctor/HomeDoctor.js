@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
 import DoctorSwipper from "../DoctorSwipper/DoctorSwipper";
-// import "./styles.css";
 import './HomeDoctor.css'
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";

@@ -25,8 +25,9 @@ const BookingModal = (props) => {
             <div className="row">
             <form onSubmit={handleOnSubmit}>
             <Form.Control readOnly className='m-2' defaultValue={props.booking.time} />
-            <Form.Control className='m-2' defaultValue='Phone Numbe' />
+            <Form.Control className='m-2' defaultValue='Phone Name' />
             <Form.Control className='m-2' type="email" placeholder='Your Email' />
+            <Form.Control className='m-2' defaultValue='Phone Number' />
             <Form.Control readOnly className='m-2' defaultValue={props.date.toDateString()} />
             <button >SEND</button>
             </form>
