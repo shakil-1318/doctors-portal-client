@@ -7,14 +7,12 @@
     box-shadow: -1px 2px 8px -1px rgba(0,0,0,0.58);
     padding: 80px 60px;
     border-radius: 10px;
-    /* background: rgba(235,233,249,1);
-background: -moz-linear-gradient(-45deg, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 51%, rgba(216,208,239,1) 52%, rgba(193,191,234,1) 100%);
-background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(51%, rgba(206,199,236,1)), color-stop(52%, rgba(216,208,239,1)), color-stop(100%, rgba(193,191,234,1)));
-background: -webkit-linear-gradient(-45deg, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 51%, rgba(216,208,239,1) 52%, rgba(193,191,234,1) 100%);
-background: -o-linear-gradient(-45deg, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 51%, rgba(216,208,239,1) 52%, rgba(193,191,234,1) 100%);
-background: -ms-linear-gradient(-45deg, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 51%, rgba(216,208,239,1) 52%, rgba(193,191,234,1) 100%);
-background: linear-gradient(135deg, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 51%, rgba(216,208,239,1) 52%, rgba(193,191,234,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=1 ); */
+    /* background: rgba(181,198,208,1);
+    background: -moz-linear-gradient(-45deg, rgba(181,198,208,1) 0%, rgba(216,225,231,1) 50%, rgba(224,239,249,1) 94%, rgba(242,246,248,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(181,198,208,1)), color-stop(50%, rgba(216,225,231,1)), color-stop(94%, rgba(224,239,249,1)), color-stop(100%, rgba(242,246,248,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(181,198,208,1) 0%, rgba(216,225,231,1) 50%, rgba(224,239,249,1) 94%, rgba(242,246,248,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(181,198,208,1) 0%, rgba(216,225,231,1) 50%, rgba(224,239,249,1) 94%, rgba(242,246,248,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(181,198,208,1) 0%, rgba(216,225,231,1) 50%, rgba(224,239,249,1) 94%, rgba(242,246,248,1) 100%); */
 }
 .form-group{
     margin-bottom: 20px;
@@ -25,6 +23,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', end
     align-items: center;
     margin-top: 20px;
     border-radius: 100px !important;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
 }
 .google_btn img{
 display: inline;

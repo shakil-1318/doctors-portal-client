@@ -57,7 +57,7 @@ const Login = () => {
                 </button>
             <div className='mt-3 text-center text-decoration-none'>
             <NavLink to='/register'>
-            new user please register
+            new user? please register
             </NavLink>
             </div>
             </form>
