@@ -1,6 +1,7 @@
 import React from 'react';
 import './Banner.css'
 import banner from '../../../images/chair.png'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -12,7 +13,9 @@ const Banner = () => {
                             <div className="banner_content">
                                 <h1>Your New Smile Starts Here</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum a porro laudantium eum debitis possimus placeat, alias </p>
+                                <Link to='./appointment'>
                                 <button>Get Appoinment</button>
+                                </Link>
                             </div>
                         </div>
                         <div className=" col-lg-8">

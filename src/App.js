@@ -9,12 +9,14 @@ import {
 import Appointment from './Pages/Appointments/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 
 
 function App() {
   return (
     <>
+      <AuthProvider>
       <Router>
         <Switch>
           <Route exact path='/'>
@@ -34,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      </AuthProvider>
     </>
   );
 }

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import useScrollListener from "../../../hooks/useScrollListener";
 import './Navigation.css'
 
 const Navigation = () => {
   const [click, setClick]=useState(false);
+
+  const {user,logOut}=useAuth();
 
   const handleClick=()=>setClick(!click);
 
@@ -24,36 +27,40 @@ const Navigation = () => {
    
     return (
         <>
-       
-      <nav className={navClassList.join(" ")}>
-      <div className="navbar">
-        <div className="nav-container container">
-          <NavLink exact to="/" className="nav-logo">
-            Doctor Portal
-          </NavLink>
-          <ul className={click? "nev-menu active": "nev-menu"}>
-            <li className="nav-items">
-              <NavLink exact to='/' activeClassName="active" className='nav-links' onClick={handleClick}>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-items">
-              <NavLink exact to='/appointment' activeClassName="active" className='nav-links' onClick={handleClick}>
-                Appointment
-              </NavLink>
-            </li>
-            <li className="nav-items">
-              <NavLink exact to='/login' activeClassName="active" className='nav-links' onClick={handleClick}>
-                Login
-              </NavLink>
-            </li>
-          </ul>
-          <div className="nav-icon" onClick={handleClick}>
-             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-        </div>
-        </div>
-      </div>
-      </nav>
+            <nav className={navClassList.join(" ")}>
+              <div className="navbar">
+                <div className="nav-container container">
+                  <NavLink exact to="/" className="nav-logo">
+                    Doctor Portal
+                  </NavLink>
+                  <ul className={click? "nev-menu active": "nev-menu"}>
+                    <li className="nav-items">
+                      <NavLink exact to='/' activeClassName="active" className='nav-links' onClick={handleClick}>
+                        Home
+                      </NavLink>
+                    </li>
+                    <li className="nav-items">
+                      <NavLink exact to='/appointment' activeClassName="active" className='nav-links' onClick={handleClick}>
+                        Appointment
+                      </NavLink>
+                    </li>
+                    <li className="nav-items">
+                      {
+                        user?.email ? 
+                        <button style={{borderRadius:'10px',fontWeight:'600', backgroundColor:'blue', color:'white',border:'none'}} onClick={logOut}>LogOut</button>
+                        :
+                        <NavLink exact to='/login' activeClassName="active" className='nav-links' onClick={handleClick}>
+                        Login
+                      </NavLink>
+                      }
+                    </li>
+                  </ul>
+                  <div className="nav-icon" onClick={handleClick}>
+                    <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+                </div>
+                </div>
+              </div>
+            </nav>
         </>
     );
 };
