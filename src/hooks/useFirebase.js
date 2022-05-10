@@ -1,39 +1,41 @@
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged , signInWithEmailAndPassword , signOut  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 // firebase init app
 initializeFirebase();
 
-const useFirebase=()=>{
-    const [user,setUser]=useState({});
+const useFirebase = () => {
+    const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
 
-    const registerUser = (email,password) => {
+    const registerUser = (email, password) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                
+
+
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
+                let errorMessage = error.message;
                 // ..
             })
-            .finally(()=>setIsLoading(false));
+            .finally(() => setIsLoading(false));
 
     }
 
-    const loginUser = (email,password) => {
+    const loginUser = (email, password, location, history) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
                 const user = userCredential.user;
                 // ...
             })
@@ -41,31 +43,31 @@ const useFirebase=()=>{
                 const errorCode = error.code;
                 const errorMessage = error.message;
             })
-            .finally(()=>setIsLoading(false));
+            .finally(() => setIsLoading(false));
 
     }
 
     // observe user state
-    useEffect(()=>{
+    useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-              setUser(user);
+                setUser(user);
             } else {
-              setUser({});
+                setUser({});
             }
             setIsLoading(false);
-          }); 
-          return ()=> unsubscribed;
-    },[auth])
+        });
+        return () => unsubscribed;
+    }, [auth])
 
-    const logOut=()=>{
+    const logOut = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
-          }).catch((error) => {
+        }).catch((error) => {
             // An error happened.
-          })
-          .finally(()=>setIsLoading(false));
+        })
+            .finally(() => setIsLoading(false));
     }
 
     return {
