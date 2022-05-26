@@ -8,12 +8,16 @@ import Footer from '../../Shared/Footer/Footer';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Spinner from 'react-bootstrap/Spinner'
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { registerUser, isLoading } = useAuth();
+    const { registerUser, isLoading, signWithGoogle, signInWithFacebook } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -34,6 +38,12 @@ const Register = () => {
 
 
         // e.target.field='';
+    }
+    const handleGoogleLogin = (location, history) => {
+        signWithGoogle(location, history)
+    }
+    const handleFacebookLogin = (location, history) => {
+        signInWithFacebook(location, history)
     }
     return (
         <>
@@ -77,11 +87,11 @@ const Register = () => {
                                         </div>
                                         <button type="submit" className=" form-control btn btn-primary">Registration</button>
                                         <div className="d-flex justify-content-around">
-                                            <button className="google_btn">
+                                            <button onClick={handleGoogleLogin} className="google_btn">
                                                 <img className='img-fluid' src={google} alt="" />
                                                 <span>Google</span>
                                             </button>
-                                            <button className="google_btn">
+                                            <button onClick={handleFacebookLogin} className="google_btn">
                                                 <img className='img-fluid' src={facebook} alt="" />
                                                 <span>Facebook</span>
                                             </button>
