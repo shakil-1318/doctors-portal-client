@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './Login.css'
+import Alert from 'react-bootstrap/Alert';
 import login from '../../../images/login.png'
 import google from '../../../images/google.png'
 import facebook from '../../../images/Facebook.png'
 import Spinner from 'react-bootstrap/Spinner'
-
 import Footer from '../../Shared/Footer/Footer';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { loginUser, isLoading } = useAuth();
+    const { user, authError, loginUser, isLoading, signWithGoogle, signInWithFacebook } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -30,6 +30,12 @@ const Login = () => {
     const handleLoginSubmit = (e) => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
+    }
+    const handleGoogleLogin = (location, history) => {
+        signWithGoogle(location, history);
+    }
+    const handleFacebookLogin = (location, history) => {
+        signInWithFacebook(location, history);
     }
     return (
         <>
@@ -58,11 +64,11 @@ const Login = () => {
                                                 type="password" className="form-control" placeholder="Enter password" />
                                         </div>
                                         <button type="submit" className=" form-control btn btn-primary">Login</button>
-                                        <button className="form-control google_btn">
+                                        <button onClick={handleGoogleLogin} className="form-control google_btn">
                                             <img className='img-fluid' src={google} alt="" />
                                             <span> Continue with Google</span>
                                         </button>
-                                        <button className="form-control google_btn">
+                                        <button onClick={handleFacebookLogin} className="form-control google_btn">
                                             <img className='img-fluid' src={facebook} alt="" />
                                             <span> Continue with Facebook</span>
                                         </button>
@@ -77,6 +83,16 @@ const Login = () => {
                                     isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                         <Spinner animation="border" variant="primary" />
                                     </div>
+                                }
+                                {
+                                    user?.email && <Alert variant='success' >
+                                        user created successfully
+                                    </Alert>
+                                }
+                                {
+                                    authError && <Alert variant="danger" >
+                                        {authError}
+                                    </Alert>
                                 }
                             </div>
                         </div>

@@ -1,34 +1,38 @@
-
-.navbar{
-  background-color: rgb(83, 83, 247);
+.navbar {
+  background-color: #1B1464;
   height: 80px;
   position: sticky;
   top: 0;
   z-index: 20;
 }
-.nav-container{
+
+.nav-container {
   width: 100%;
   /* margin: 0 auto; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav-logo{
+
+.nav-logo {
   font-size: 2rem;
   color: white;
   text-decoration: none;
 }
-.nav-logo:hover{
+
+.nav-logo:hover {
   color: white;
 }
-.nev-menu{
+
+.nev-menu {
   margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
 }
-.nav-links{
+
+.nav-links {
   color: white;
   text-decoration: none;
   padding: .2rem 2rem;
@@ -36,15 +40,18 @@
   display: block;
 
 }
-.nav-links:hover{
+
+.nav-links:hover {
   background-color: rgb(77, 77, 240);
   color: white;
   border-radius: 5px;
 }
-.nav-items{
+
+.nav-items {
   line-height: 40px;
   /* margin-right: 1rem; */
 }
+
 /* .nav-items::after{
   content: '';
   display: block;
@@ -52,15 +59,16 @@
   background: transparent;
   transition: width .7s ease, background-color .5s ease;
 } */
-.nav-items:hover::after{
+.nav-items:hover::after {
   width: 100%;
   background: yellow;
 }
+
 /* .nav-items .active{
   color: yellow;
   border: 2px solid yellow;
 } */
-.nav-icon{
+.nav-icon {
   display: none;
 }
 
@@ -82,11 +90,12 @@ nav.nav-bar--hidden {
 
 /* nav scroll*/
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 960px) {
   .nav-logo {
     margin-left: 15px;
-}
-  .nev-menu{
+  }
+
+  .nev-menu {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -96,7 +105,8 @@ nav.nav-bar--hidden {
     left: -110%;
     opacity: 1;
   }
-  .nev-menu.active{
+
+  .nev-menu.active {
     padding: 10px 0;
     background-color: rgb(83, 83, 247);
     left: 0;
@@ -104,6 +114,7 @@ nav.nav-bar--hidden {
     transition: all .5s ease;
     z-index: 1;
   }
+
   /* .nav-item .active{
     color: yellow;
     border: none;
@@ -113,7 +124,7 @@ nav.nav-bar--hidden {
     width: 100%;
     display: table;
   } */
-  .nav-icon{
+  .nav-icon {
     display: block;
     position: absolute;
     top: -12px;
@@ -124,4 +135,3 @@ nav.nav-bar--hidden {
     cursor: pointer;
   }
 }
-

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './Register.css'
+import Alert from 'react-bootstrap/Alert';
+
 import login from '../../../images/login.png'
 import google from '../../../images/google.png'
 import facebook from '../../../images/Facebook.png'
@@ -14,7 +16,7 @@ import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.m
 const Register = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { registerUser, isLoading, signWithGoogle, signInWithFacebook } = useAuth();
+    const { user, authError, registerUser, isLoading, signWithGoogle, signInWithFacebook } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -31,15 +33,15 @@ const Register = () => {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         if (loginData.password !== loginData.password2) {
-            alert('not match')
+            alert('password not match')
             return;
         }
-        registerUser(loginData.email, loginData.password)
+        registerUser(loginData.email, loginData.password, loginData.name, history)
 
 
         // e.target.field='';
     }
-    const handleGoogleLogin = (location, history) => {
+    const handleGoogleLogin = (history) => {
         signWithGoogle(location, history)
     }
     const handleFacebookLogin = (location, history) => {
@@ -57,13 +59,13 @@ const Register = () => {
                                 {
                                     !isLoading && <form onSubmit={handleLoginSubmit}>
 
-                                        {/* <div className="form-group ">
-                            <label className='mb-2'>Your Name</label>
-                            <input
-                            name='name'
-                            onBlur={handleOnBlur}
-                            type="text" className="form-control" placeholder="Your Name" />
-                        </div> */}
+                                        <div className="form-group ">
+                                            <label className='mb-2'>Your Name</label>
+                                            <input
+                                                name='name'
+                                                onBlur={handleOnBlur}
+                                                type="text" className="form-control" placeholder="Your Name" />
+                                        </div>
                                         <div className="form-group ">
                                             <label className='mb-2'>Email address</label>
                                             <input
@@ -107,6 +109,16 @@ const Register = () => {
                                     isLoading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                         <Spinner animation="border" variant="primary" />
                                     </div>
+                                }
+                                {
+                                    user?.email && <Alert variant='success' >
+                                        user created successfully
+                                    </Alert>
+                                }
+                                {
+                                    authError && <Alert variant="danger" >
+                                        {authError}
+                                    </Alert>
                                 }
 
                             </div>

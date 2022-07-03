@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Booking from '../Booking/Booking';
 import './AvailableAppointment.css'
 
@@ -49,31 +49,42 @@ const bookings = [
 ]
 
 
-const AvailableAppointment = ({date}) => {
+const AvailableAppointment = ({ date }) => {
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+            .then(res => res.json())
+            .then(data => {
+                setServices(data)
+            })
+    }, [])
+
     return (
         <>
-           <div className="availableappointment">
-               <div className="container">
-                   {/* 1st row */}
-                   <div className="row justify-content-center">
+            <div className="availableappointment">
+                <div className="container">
+                    {/* 1st row */}
+                    <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="appointment_title text-center">
-                            <h1>Available Appoinment on {date.toDateString()}</h1>
+                                <h1>Available Appoinment on <span>{date.toDateString()}</span> </h1>
                             </div>
                         </div>
-                   </div>
-                   {/* 2nd row */}
-                   <div className="row justify-content-center">
-                       {
-                           bookings.map(booking=><Booking
-                           key={booking.id}
-                           booking={booking}
-                           date={date}
-                           ></Booking>)
-                       }
-                   </div>
-               </div>
-           </div>
+                    </div>
+                    {/* 2nd row */}
+                    <div className="row justify-content-center">
+                        {
+                            services.map(services => <Booking
+                                key={services.id}
+                                services={services}
+                                date={date}
+
+                            ></Booking>)
+                        }
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

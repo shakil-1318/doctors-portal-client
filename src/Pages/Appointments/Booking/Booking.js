@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button'
 import './Booking.css'
 
 
-const Booking = ({booking,date}) => {
-    const {name,time,price,space}=booking;
+const Booking = ({ services, date }) => {
+    const { name, time, price, space } = services;
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
@@ -21,10 +21,11 @@ const Booking = ({booking,date}) => {
             </div>
 
             <BookingModal
-             show={modalShow}
-             onHide={() => setModalShow(false)}
-             booking={booking}
-             date={date}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                services={services}
+                date={date}
+
             ></BookingModal>
         </>
     );

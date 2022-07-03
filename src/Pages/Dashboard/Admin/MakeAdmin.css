@@ -1,0 +1,21 @@
+.admin-section h1 {
+    margin-top: 60px;
+}
+
+.admin {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.admin-input {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.admin-btn {
+    margin-top: 10px;
+    width: 50%;
+    background-color: #0c2461;
+}

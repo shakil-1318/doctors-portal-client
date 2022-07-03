@@ -4,12 +4,26 @@ import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import * as IoIcons from 'react-icons/io';
 import './Sidebar.css'
+import {
+    BrowserRouter,
+    Switch,
+    Route,
+    useRouteMatch
+} from "react-router-dom";
 import profile from '../../../images/people-1.png'
 import useAuth from '../../../hooks/useAuth';
+import Appointments from '../Admin/Appointments/Appointments';
+import MakeAdmin from '../Admin/MakeAdmin';
+import DashboardHome from '../DashboardHome';
+import ManageOrder from '../Admin/ManageOrder';
+import AddDoctor from '../Admin/AddDoctor';
+
+
+
 
 const Sidebar = () => {
     const { user, logOut } = useAuth();
-    console.log(user);
+    let { path, url } = useRouteMatch();
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar)
@@ -47,14 +61,42 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className="nav-text">
-                        <Link to='/'>
-                            <FaIcons.FaCartPlus />
-                            <span>Product</span>
+                        <Link to={`${url}/manageOrder`}>
+                            <AiIcons.AiFillHome />
+                            <span>Manage Order</span>
+                        </Link>
+                    </li>
+                    <li className="nav-text">
+                        <Link to={`${url}/makeAdmin`}>
+                            <AiIcons.AiFillHome />
+                            <span>Make Admin</span>
+                        </Link>
+                    </li>
+                    <li className="nav-text">
+                        <Link to={`${url}/addDoctor`}>
+                            <AiIcons.AiFillHome />
+                            <span>Add Doctor</span>
                         </Link>
                     </li>
                 </ul>
             </nav>
-            <h1 className='text-center'>welcome to dashboard</h1>
+            {/* <h1 className='text-center'>welcome to dashboard</h1>
+            <Appointments></Appointments> */}
+            <Switch>
+                <Route exact path={`${path}`}>
+                    <DashboardHome></DashboardHome>
+                </Route>
+                <Route path={`${path}/manageOrder`}>
+                    <ManageOrder></ManageOrder>
+                </Route>
+                <Route path={`${path}/makeAdmin`}>
+                    <MakeAdmin></MakeAdmin>
+                </Route>
+                <Route path={`${path}/addDoctor`}>
+                    <AddDoctor></AddDoctor>
+                </Route>
+
+            </Switch>
         </>
     );
 };

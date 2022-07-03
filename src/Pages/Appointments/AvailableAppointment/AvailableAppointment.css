@@ -1,3 +1,8 @@
-.availableappointment{
+.availableappointment {
     padding: 100px 0;
+}
+
+.appointment_title span {
+    color: #1B1464;
+    font-weight: 700;
 }
