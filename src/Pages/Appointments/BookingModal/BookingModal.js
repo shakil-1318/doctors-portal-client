@@ -29,7 +29,7 @@ const BookingModal = (props) => {
       ...bookingInfo,
       time,
       name,
-      date: date.toLocaleDateString(),
+      date,
       status
     }
     console.log(appointment);
