@@ -20,7 +20,7 @@ const ManageOrder = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://lit-ocean-74625.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => {
                 setAppointment(data)
@@ -31,7 +31,7 @@ const ManageOrder = () => {
 
     // handleApproved
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://lit-ocean-74625.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),

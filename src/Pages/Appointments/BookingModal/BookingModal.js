@@ -29,13 +29,13 @@ const BookingModal = (props) => {
       ...bookingInfo,
       time,
       name,
-      date,
+      date: date.toLocaleDateString(),
       status
     }
     console.log(appointment);
 
     // send server
-    fetch("http://localhost:5000/appointments", {
+    fetch("https://lit-ocean-74625.herokuapp.com/appointments", {
       method: "POST",
       headers: {
         'content-type': 'application/json'

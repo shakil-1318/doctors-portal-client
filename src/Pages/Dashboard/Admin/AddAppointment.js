@@ -9,7 +9,7 @@ const AddAppointment = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/addappointment', data)
+        axios.post('https://lit-ocean-74625.herokuapp.com/addappointment', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Successfully Product addedded')
@@ -26,7 +26,7 @@ const AddAppointment = () => {
                         <input
                             className='inputItem'
                             placeholder='Appointment Name'
-                            {...register("name", { required: true })}
+                            {...register("serviceName", { required: true })}
                         />
                         <textarea
                             className='inputItem'
