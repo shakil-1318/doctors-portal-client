@@ -19,7 +19,7 @@ const MyAppoints = () => {
 
 
     useEffect(() => {
-        const url = `https://lit-ocean-74625.herokuapp.com/appointment?email=${user.email}&&date=${date.toLocaleDateString()}`
+        const url = `https://lit-ocean-74625.herokuapp.com/appointment?email=${user.email}&&date=${date}`
         console.log(url);
         fetch(url)
             .then(res => res.json())
