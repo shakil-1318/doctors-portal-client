@@ -47,13 +47,6 @@
 }
 
 
-
-
-
-
-
-
-
 .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
@@ -81,7 +74,6 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 8px 0px 8px 16px;
     list-style: none;
     height: 60px;
 }
@@ -116,5 +108,5 @@
 }
 
 span {
-    margin-left: 16px;
+    margin-left: 12px;
 }

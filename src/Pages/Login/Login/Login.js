@@ -7,7 +7,7 @@ import google from '../../../images/google.png'
 import facebook from '../../../images/Facebook.png'
 import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../../Shared/Footer/Footer';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom';

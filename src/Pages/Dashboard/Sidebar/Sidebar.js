@@ -2,27 +2,26 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
-import * as IoIcons from 'react-icons/io';
+import { AiFillMedicineBox, AiFillRead } from "react-icons/ai";
 import './Sidebar.css'
 import {
-    BrowserRouter,
     Switch,
     Route,
     useRouteMatch
 } from "react-router-dom";
-import profile from '../../../images/people-1.png'
 import useAuth from '../../../hooks/useAuth';
-import Appointments from '../Admin/Appointments/Appointments';
 import MakeAdmin from '../Admin/MakeAdmin';
 import DashboardHome from '../DashboardHome';
 import ManageOrder from '../Admin/ManageOrder';
-import AddDoctor from '../Admin/AddDoctor';
+import MyAppoints from '../Users/MyAppoints';
+import Review from '../Users/Review';
+import AddAppointment from '../Admin/AddAppointment';
 
 
 
 
 const Sidebar = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
     let { path, url } = useRouteMatch();
     const [sidebar, setSidebar] = useState(false);
 
@@ -36,14 +35,12 @@ const Sidebar = () => {
                 <div className="profile_dropdown">
                     <Link to='#'><img className='img-fluid' src={user?.photoURL} alt="" /></Link>
                     <div className="dropdown_content">
-                        {/* <a href="#">LogOut</a> */}
                         <Link to='/home'>
                             Home
                         </Link>
-                        <Link to='/home'>
+                        <Link onClick={logOut} to='/home'>
                             LogOut
                         </Link>
-                        {/* <a href="#">LogOut</a> */}
                     </div>
                 </div>
             </div>
@@ -60,28 +57,46 @@ const Sidebar = () => {
                             <span>Home</span>
                         </Link>
                     </li>
-                    <li className="nav-text">
-                        <Link to={`${url}/manageOrder`}>
-                            <AiIcons.AiFillHome />
-                            <span>Manage Order</span>
-                        </Link>
-                    </li>
-                    <li className="nav-text">
-                        <Link to={`${url}/makeAdmin`}>
-                            <AiIcons.AiFillHome />
-                            <span>Make Admin</span>
-                        </Link>
-                    </li>
-                    <li className="nav-text">
-                        <Link to={`${url}/addDoctor`}>
-                            <AiIcons.AiFillHome />
-                            <span>Add Doctor</span>
-                        </Link>
-                    </li>
+
+                    {
+                        admin ? <>
+                            <li className="nav-text">
+                                <Link to={`${url}/manageOrder`}>
+                                    <AiIcons.AiFillHome />
+                                    <span>Manage Order</span>
+                                </Link>
+                            </li>
+                            <li className="nav-text">
+                                <Link to={`${url}/makeAdmin`}>
+                                    <AiIcons.AiFillHome />
+                                    <span>Make Admin</span>
+                                </Link>
+                            </li>
+                            <li className="nav-text">
+                                <Link to={`${url}/addappointment`}>
+                                    <AiIcons.AiFillHome />
+                                    <span>Add Appointment</span>
+                                </Link>
+                            </li>
+                        </>
+                            :
+                            <>
+                                <li className="nav-text">
+                                    <Link to={`${url}/myappointment`}>
+                                        < AiFillMedicineBox></AiFillMedicineBox>
+                                        <span>My Appointments</span>
+                                    </Link>
+                                </li>
+                                <li className="nav-text">
+                                    <Link to={`${url}/review`}>
+                                        < AiFillRead></AiFillRead>
+                                        <span>Review</span>
+                                    </Link>
+                                </li>
+                            </>
+                    }
                 </ul>
             </nav>
-            {/* <h1 className='text-center'>welcome to dashboard</h1>
-            <Appointments></Appointments> */}
             <Switch>
                 <Route exact path={`${path}`}>
                     <DashboardHome></DashboardHome>
@@ -92,8 +107,14 @@ const Sidebar = () => {
                 <Route path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
                 </Route>
-                <Route path={`${path}/addDoctor`}>
-                    <AddDoctor></AddDoctor>
+                <Route path={`${path}/addappointment`}>
+                    <AddAppointment></AddAppointment>
+                </Route>
+                <Route path={`${path}/myappointment`}>
+                    <MyAppoints></MyAppoints>
+                </Route>
+                <Route path={`${path}/review`}>
+                    <Review></Review>
                 </Route>
 
             </Switch>

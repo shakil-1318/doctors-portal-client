@@ -1,7 +1,6 @@
 import React from 'react';
 import './AppointmentBanner.css'
 import appointmentBanner from '../../../images/doctor.png'
-import bg from '../../../images/bg.png'
 
 
 const AppointmentBanner = () => {

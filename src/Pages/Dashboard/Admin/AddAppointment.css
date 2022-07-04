@@ -1,0 +1,18 @@
+.add-appointment-form {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.inputItem {
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.add-btn {
+    background-color: #0c2461;
+    color: white;
+}

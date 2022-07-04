@@ -23,14 +23,11 @@
     margin: 20px 0;
 }
 
-.appointment_content p {}
 
 .appointment_content button {
-    background-color: aqua;
+    background-color: #1b1464;
     border: none;
     color: white;
-    /* height: 100px;
-    width: 400px; */
     padding: 10px 40px;
     margin-top: 5px;
 }

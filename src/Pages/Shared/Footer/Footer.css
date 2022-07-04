@@ -13,7 +13,7 @@
 }
 
 .footer_content .common_style {
-    color: aqua;
+    color: #1b1464;
     font-size: 22px;
     font-weight: 600;
     margin: 0;
@@ -31,7 +31,7 @@
 
 .footer_icon span i {
     font-size: 25px;
-    color: aqua;
+    color: #1b1464;
     transition: .3s;
 }
 
@@ -42,7 +42,7 @@
 
 .footer_call_btn .phone_number {
     font-weight: 700;
-    background-color: aqua;
+    background-color: #1b1464;
     color: white;
     display: inline-block;
     padding: 10px;

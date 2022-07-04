@@ -5,7 +5,7 @@ import './Booking.css'
 
 
 const Booking = ({ services, date }) => {
-    const { name, time, price, space } = services;
+    const { name, time, space } = services;
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
